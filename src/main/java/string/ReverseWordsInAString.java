@@ -1,6 +1,4 @@
-package String;
-
-import java.util.Arrays;
+package string;
 
 //problem 151
 public class ReverseWordsInAString {
@@ -61,21 +59,24 @@ public class ReverseWordsInAString {
   }
 
   public static String reverseWords(String s) {
-    String[] strings = s.trim().split("\\s+");
+    StringBuilder stringBuilder = new StringBuilder();
+    String[] strings = s.trim().split(" ");
     int stringsLength = strings.length;
 
-    String tmp;
 
-    for (int i = 0; i < stringsLength / 2; i++){
-      tmp = strings[i];
-      strings[i] = strings[stringsLength - i - 1];
-      strings[stringsLength - i - 1] = tmp;
+    for (int i = stringsLength - 1; i >= 0 ; i--){
+//      System.out.println("strings[i] = " + strings[i]);
+      if (!strings[i].equals("")) {
+        stringBuilder.append(strings[i]);
+        stringBuilder.append(" ");
+      }
     }
 
+//    System.out.println(stringBuilder);
 
-    System.out.println(String.join(" ",strings));
-    System.out.println(Arrays.toString(strings));
+    stringBuilder.delete(stringBuilder.length() - 1, stringBuilder.length());
 
-    return String.join(" ",strings);
+//    System.out.println(stringBuilder);
+    return stringBuilder.toString();
   }
 }
