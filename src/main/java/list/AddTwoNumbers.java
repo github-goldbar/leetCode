@@ -81,23 +81,19 @@ public class AddTwoNumbers {
 
     while (l1 != null || l2 != null) {
 
-      total = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + carry;
+      total = carry;
+
+      if (l1 != null) { total += l1.val; l1 = l1.next; }
+      if (l2 != null) { total += l2.val; l2 = l2.next; }
+
       System.out.println("total = " + total);
 
       carry = total / 10;
       System.out.println("carry = " + carry);
 
-      currentNodeHead.next = new ListNode(total % 10);
-      currentNodeHead = currentNodeHead.next;
+      currentNodeHead = currentNodeHead.next = new ListNode(total % 10);
       System.out.println("currentNodeHead.val = " + currentNodeHead.val);
 
-      if (l1 != null) {
-        l1 = l1.next;
-      }
-
-      if (l2 != null) {
-        l2 = l2.next;
-      }
 
       System.out.println();
     }
