@@ -51,12 +51,17 @@ public class BinarySearch {
       return -1;
     }
 
+    System.out.println("left = " + left);
+    System.out.println("right = " + right);
+
     middle = left + (right - left) / 2;
+    System.out.println("middle = " + middle);
 
     if (nums[middle] == target) {
       return middle;
     }
 
+    System.out.println("");
     if (nums[middle] > target) {
       return binarySearch(nums, target, left, middle - 1);
     } else {
