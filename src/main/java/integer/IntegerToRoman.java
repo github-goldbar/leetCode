@@ -1,5 +1,6 @@
 package integer;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -23,79 +24,24 @@ public class IntegerToRoman {
     System.out.println(intToRoman(1994));
   }
 
+  final static int[]    values = new int[] {1000,  900, 500,  400, 100,   90,  50,   40,  10,    9,   5,    4,   1};
+  final static String[] romans = new String[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
   public static String intToRoman(int num) {
-    Map<Integer, String> romanHashMap = new TreeMap<>();
-    romanHashMap.put(1,    "I");
-    romanHashMap.put(5,    "V");
-    romanHashMap.put(10,   "X");
-    romanHashMap.put(50,   "L");
-    romanHashMap.put(100,  "C");
-    romanHashMap.put(500,  "D");
-    romanHashMap.put(1000, "M");
+    if(num < 0 || 3999 < num) {throw new IllegalArgumentException();}
 
-
-    System.out.println("num init = " + num);
-    System.out.println(romanHashMap);
-
-    int divideNum = 1;
-    int currentNum = 1;
-
-    while (num >= divideNum) {
-      divideNum *= 10;
-    }
-    System.out.println("before divideNum = " + divideNum);
-
-    divideNum /= 10;
-
-    System.out.println("after divideNum = " + divideNum);
+    int i = 0;
 
     StringBuilder stringBuilder = new StringBuilder();
 
-    char[] chars = {};
-
-    while (num > 0){
-      currentNum = num / divideNum;
-      System.out.println("currentNum = " + currentNum);
-
-      //    1 to 3
-      if (1 <= currentNum && currentNum <= 3) {
-
-        for (int i = 0; i < currentNum; i++) {
-          stringBuilder.append(romanHashMap.get(divideNum));
-        }
+    while (num > 0) {
+      if (num - values[i] >= 0) {
+        stringBuilder.append(romans[i]);
+        num -= values[i];
+      } else {
+        i++;
       }
-      //    4
-      else if (currentNum == 4) {
-        stringBuilder.append(romanHashMap.get(divideNum));
-        stringBuilder.append(romanHashMap.get(divideNum * 5));
-      }
-      //    5
-      else if (currentNum == 5) {
-        stringBuilder.append(romanHashMap.get(divideNum * 5));
-      }
-      //    6 to 8
-      if (6 <= currentNum && currentNum <= 8) {
-        stringBuilder.append(romanHashMap.get(divideNum * 5));
-        for (int i = 0; i < currentNum - 5; i++) {
-          stringBuilder.append(romanHashMap.get(divideNum));
-        }
-      }
-      //    9
-      else if (currentNum == 9) {
-        stringBuilder.append(romanHashMap.get(divideNum));
-        stringBuilder.append(romanHashMap.get(divideNum * 10));
-      }
-
-      System.out.println("stringBuilder = " + stringBuilder);
-      System.out.println();
-
-      num %= divideNum;
-      System.out.println("num after = " + num);
-      divideNum /= 10;
     }
-
-
-
 
     return stringBuilder.toString();
   }
