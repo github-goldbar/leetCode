@@ -1,9 +1,5 @@
 package integer;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
-
 public class IntegerToRoman {
 //  I             1
 //  V             5
