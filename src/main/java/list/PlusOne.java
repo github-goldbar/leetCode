@@ -74,7 +74,7 @@ public class PlusOne {
 
 
     if (carry > 0) {
-      int[] ints = new int[1 + digits.length];
+      int[] ints = new int[digits.length + 1];
       System.arraycopy(new int[]{1}, 0, ints, 0, 1);
       System.arraycopy(digits, 0, ints, 1, digits.length);
       return ints;
@@ -95,7 +95,7 @@ public class PlusOne {
 //      digits[i] = 0;
 //    }
 //
-//    int[] intsIfAllIntIsNine = new int[digits.length];
+//    int[] intsIfAllIntIsNine = new int[digits.length + 1];
 //    intsIfAllIntIsNine[0] = 1;
 //    return intsIfAllIntIsNine;
   }
