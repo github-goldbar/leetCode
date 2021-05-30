@@ -57,5 +57,15 @@ public class RemoveDuplicatesfromSortedArray {
     }
 
     return (i != 0) ? j + 1 : j;
+
+
+//    int count=0;
+//    for(int num:nums){
+//      if(num>nums[count]){
+//        // count++;
+//        nums[++count]= num  ;
+//      }
+//    }
+//    return ++count;
   }
 }
