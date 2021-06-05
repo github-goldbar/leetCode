@@ -61,14 +61,26 @@ public class CheckIfNAndItsDoubleExist {
 
 
   public static boolean checkIfExist(int[] arr) {
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = i + 1; j < arr.length; j++) {
-        if (i != j && (arr[i] == 2 * arr[j] || 2 * arr[i] == arr[j])) {
-          return true;
+//    for (int i = 0; i < arr.length; i++) {
+//      for (int j = i + 1; j < arr.length; j++) {
+//        if (i != j && (arr[i] == 2 * arr[j] || 2 * arr[i] == arr[j])) {
+//          return true;
+//        }
+//      }
+//    }
+//    return false;
+
+      int[] seen = new int[2001];
+      for (int n : arr) {
+        if (n % 2 == 0 && seen[n / 2 + 1000] == 1) return true;
+        int n2 = n * 2;
+        if (n2 <= 1000 && n2 >= -1000) {
+          if (seen[n2 + 1000] == 1) return true;
         }
+        seen[n + 1000] = 1;
       }
-    }
-    return false;
+
+      return false;
 
 //    solution: 1
 
