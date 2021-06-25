@@ -87,40 +87,7 @@ public class ValidMountainArray {
   }
 
   public static boolean validMountainArray(int[] arr) {
-    if (arr.length < 3) {
-      return false;
-    } else if (arr.length == 3) {
-      return arr[0] < arr[1] && arr[1] > arr[2];
-    }
-
-
-//    int l = 0, r = 0;
-
-//    for (int i = 1; i < arr.length - 1; i++) {
-//      l = i;
-//      r = i;
-//
-////    From i to start, not include i.
-//      while (l != 0 && arr[l - 1] < arr[l]) {
-//        l--;
-//      }
-//
-////    From i to end, not include i.
-//      while (r != arr.length - 1 && arr[r] > arr[r + 1]) {
-//        r++;
-//      }
-//
-//      if (l == 0 && r == arr.length - 1) {
-//        return true;
-//      }
-//    }
-//    return false;
-
     int l = 0, r = arr.length - 1;
-
-//    for (int i = 1; i < arr.length - 1; i++) {
-//    l = i;
-//    r = i;
 
 //    From i to start, not include i.
     while (l < arr.length - 1 && arr[l] < arr[l + 1]) {
