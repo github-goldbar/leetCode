@@ -12,7 +12,9 @@ public class SquaresOfASortedArray {
 //    After sorting, it becomes [0,1,9,16,100].
 
     int[] numsOne = {-4, -1, 0, 3, 10};
-    System.out.println("Example 1: " + Arrays.toString(sortedSquares(numsOne)) + "should be [0,1,9,16,100]");
+    System.out.println("Example 1: " + Arrays.toString(sortedSquares(numsOne)));
+    System.out.println(" should be [0, 1, 9, 16, 100]");
+    System.out.println();
 
 //    Example 2:
 //
@@ -22,7 +24,9 @@ public class SquaresOfASortedArray {
 //    Only 1771 contains an even number of digits.
 
     int[] numsTwo = {-7, -3, 2, 3, 11};
-    System.out.println("Example 2: " + Arrays.toString(sortedSquares(numsTwo)) + "should be [4,9,9,49,121]");
+    System.out.println("Example 2: " + Arrays.toString(sortedSquares(numsTwo)));
+    System.out.println( " should be [4, 9, 9, 49, 121]");
+    System.out.println();
 
 //    Constraints:
 
@@ -36,24 +40,38 @@ public class SquaresOfASortedArray {
     for (int i = 0; i < nums.length; i++) {
       nums[i] = nums[i] * nums[i];
     }
-    nums = Arrays.stream(nums).sorted().toArray();
+    selectionSort(nums);
+//    nums = Arrays.stream(nums).sorted().toArray();
     System.out.println(Arrays.toString(nums));
     return nums;
 
-//    int length=nums.length-1;
-//    int start=0;
-//    int end=length;
-//    int[] ans=new int[length+1];
+//    int length = nums.length - 1;
+//    int start = 0;
+//    int end = length;
+//    int[] ans =new int[length + 1];
 //
-//    for(int i=length;i>=0;i--) {
-//      if(Math.abs(nums[start])>Math.abs(nums[end])) {
-//        ans[i]=nums[start]*nums[start];
+//    for (int i = length; i >= 0; i--) {
+//      if (Math.abs(nums[start]) > Math.abs(nums[end])) {
+//        ans[i] = nums[start] * nums[start];
 //        start++;
-//      }else {
-//        ans[i]=nums[end]*nums[end];
+//      } else {
+//        ans[i] = nums[end] * nums[end];
 //        end--;
 //      }
 //    }
 //    return ans;
+  }
+
+  static int smallest;
+  public static void selectionSort(int[] nums) {
+    smallest = nums[0];
+
+    for (int i = 0; i < nums.length; i++) {
+      if (smallest > nums[i]) {
+        smallest = nums[i];
+      }
+    }
+    System.out.println("smallest = " + smallest);
+//    Arrays.sort(nums);
   }
 }
