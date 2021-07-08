@@ -19,7 +19,7 @@ public class SortArrayByParity {
 //
     int[] nums = {3, 1, 2, 4};
 
-//    System.out.println("Example 1: " + Arrays.toString(sortArrayByParity(nums)));
+    System.out.println("Example 1: " + Arrays.toString(sortArrayByParity(nums)));
 
     //    Example 2:
     //

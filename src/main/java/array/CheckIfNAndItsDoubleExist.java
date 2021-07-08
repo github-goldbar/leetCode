@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 public class CheckIfNAndItsDoubleExist {
   public static void main(String[] args) {
 //    i != j

@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 public class MergeSortedArraySolution {
 
   public static void main(String[] args) {

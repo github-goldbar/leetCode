@@ -1,7 +1,5 @@
 package array;
 
-import javax.swing.event.ListDataEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,9 +15,9 @@ public class FindAllNumbersDisappearedInAnArray {
 //    Output: [5,6]
 
     int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
-    List<Integer> list = findDisappearedNumbers(nums);
-    System.out.println("list = " + list);
-    System.out.println();
+//    List<Integer> list = findDisappearedNumbers(nums);
+//    System.out.println("list = " + list);
+//    System.out.println();
 
 
 //    Example 2:
@@ -27,10 +25,15 @@ public class FindAllNumbersDisappearedInAnArray {
 //    Input: nums = [1,1]
 //    Output: [2]
 
+    int[] nums2 = {1, 1};
+    List<Integer> list2 = findDisappearedNumbers(nums2);
+    System.out.println("list = " + list2);
+    System.out.println();
+
 //    Constraints:
 //
 //    n == nums.length
-//    1 <= n <= 105
+//    1 <= n <= 10^5
 //    1 <= nums[i] <= n
 //
 //
@@ -39,15 +42,21 @@ public class FindAllNumbersDisappearedInAnArray {
 
   static List<Integer> list;
   public static List<Integer> findDisappearedNumbers(int[] nums) {
-    list = new ArrayList<>();
-    Arrays.sort(nums);
-    System.out.println("nums = " + Arrays.toString(nums));
 
-    for (int i = 1; i <= nums.length; i++) {
-      if (i != nums[i - 1]) {
-        list.add(i);
+    list = new ArrayList<>();
+
+    int[] count = new int[nums.length + 1];
+
+    for (int num : nums) {
+      count[num]++;
+    }
+
+    for (int i = 0; i < nums.length; i++) {
+      if (count[i + 1] == 0) {
+        list.add(i + 1);
       }
     }
+
 
     return list;
   }

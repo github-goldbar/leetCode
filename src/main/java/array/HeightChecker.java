@@ -1,9 +1,5 @@
 package array;
 
-import com.ibm.jvm.Log;
-
-import java.util.Arrays;
-
 public class HeightChecker {
   public static void main(String[] args) {
     // A school is trying to take an annual photo of all the students.
@@ -39,7 +35,7 @@ public class HeightChecker {
     // All indices do not match.
 
     int[] nums2 = {5, 1, 2, 3, 4};
-//    System.out.println("Example 2: " + heightChecker(nums2));
+    System.out.println("Example 2: " + heightChecker(nums2));
     System.out.println();
 
     // Example 3:
@@ -52,7 +48,7 @@ public class HeightChecker {
     // All indices match.
 
     int[] nums3 = {1, 2, 3, 4, 5};
-//    System.out.println("Example 3: " + heightChecker(nums3));
+    System.out.println("Example 3: " + heightChecker(nums3));
     System.out.println();
 
     int[] nums4 = {2, 1, 2, 1, 1, 2, 2, 1};

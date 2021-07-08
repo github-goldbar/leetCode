@@ -1,9 +1,5 @@
 package array;
 
-import string.LengthOfLastWord;
-
-import java.util.Arrays;
-
 public class ValidMountainArray {
   public static void main(String[] args) {
 //    arr.length >= 3

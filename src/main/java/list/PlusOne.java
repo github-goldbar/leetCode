@@ -45,12 +45,12 @@ public class PlusOne {
     int[] array1 = new int[]{9, 9, 9, 9, 9};
     int[] array2 = new int[]{2, 2, 2, 2, 2};
 
-//    int[] array1and2 = new int[array1.length + array2.length];
-//    System.out.println("array1and2 = " + Arrays.toString(array1and2));
-//    System.arraycopy(array1, 0, array1and2, 0, array1.length);
-//    System.out.println("array1and2 = " + Arrays.toString(array1and2));
-//    System.arraycopy(array2, 0, array1and2, array1.length, array2.length);
-//    System.out.println("array1and2 = " + Arrays.toString(array1and2));
+   int[] array1and2 = new int[array1.length + array2.length];
+   System.out.println("array1and2 = " + Arrays.toString(array1and2));
+   System.arraycopy(array1, 0, array1and2, 0, array1.length);
+   System.out.println("array1and2 = " + Arrays.toString(array1and2));
+   System.arraycopy(array2, 0, array1and2, array1.length, array2.length);
+   System.out.println("array1and2 = " + Arrays.toString(array1and2));
 
   }
 

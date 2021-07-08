@@ -1,9 +1,5 @@
 package integer;
 
-import javax.sound.midi.MidiDevice;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-
 public class BinarySearch {
   public static void main(String[] args) {
 

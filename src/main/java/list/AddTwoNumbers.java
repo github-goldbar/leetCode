@@ -20,7 +20,7 @@ public class AddTwoNumbers {
     ListNode listNodeOutputSecond = new ListNode(0, listNodeOutputThird);
     ListNode listNodeOutputFirst = new ListNode(7, listNodeOutputSecond);
 
-//    ListNode e1AnswerListNode = addTwoNumbers(listNodeQ1First, listNodeQ2First);
+   ListNode e1AnswerListNode = addTwoNumbers(listNodeQ1First, listNodeQ2First);
 //
 //    System.out.println("Example 1");
 //

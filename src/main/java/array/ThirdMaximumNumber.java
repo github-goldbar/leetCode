@@ -1,11 +1,5 @@
 package array;
 
-import com.sun.java.accessibility.util.TopLevelWindowListener;
-
-import java.nio.file.FileStore;
-import java.util.LinkedList;
-import java.util.List;
-
 public class ThirdMaximumNumber {
   public static void main(String[] args) {
 //    Given integer array nums, return the third maximum number in this array.
