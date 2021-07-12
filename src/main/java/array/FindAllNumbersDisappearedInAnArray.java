@@ -15,9 +15,9 @@ public class FindAllNumbersDisappearedInAnArray {
 //    Output: [5,6]
 
     int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
-//    List<Integer> list = findDisappearedNumbers(nums);
-//    System.out.println("list = " + list);
-//    System.out.println();
+    List<Integer> list = findDisappearedNumbers(nums);
+    System.out.println("list = " + list);
+    System.out.println();
 
 
 //    Example 2:
@@ -45,6 +45,7 @@ public class FindAllNumbersDisappearedInAnArray {
 
     list = new ArrayList<>();
 
+//    int[] count = new int[100001];
     int[] count = new int[nums.length + 1];
 
     for (int num : nums) {

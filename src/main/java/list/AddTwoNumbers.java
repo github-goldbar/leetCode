@@ -83,19 +83,25 @@ public class AddTwoNumbers {
 
       total = carry;
 
-      if (l1 != null) { total += l1.val; l1 = l1.next; }
-      if (l2 != null) { total += l2.val; l2 = l2.next; }
+      if (l1 != null) {
+        total += l1.val;
+        l1 = l1.next;
+      }
 
-      System.out.println("total = " + total);
+      if (l2 != null) {
+        total += l2.val;
+        l2 = l2.next;
+      }
+
+//      System.out.println("total = " + total);
 
       carry = total / 10;
-      System.out.println("carry = " + carry);
+//      System.out.println("carry = " + carry);
 
       currentNodeHead = currentNodeHead.next = new ListNode(total % 10);
-      System.out.println("currentNodeHead.val = " + currentNodeHead.val);
+//      System.out.println("currentNodeHead.val = " + currentNodeHead.val);
 
-
-      System.out.println();
+//      System.out.println();
     }
 
     if (carry > 0) {
@@ -115,6 +121,7 @@ class ListNode {
     this.val = val;
   }
   ListNode(int val, ListNode next) {
-    this.val = val; this.next = next;
+    this.val = val;
+    this.next = next;
   }
 }
