@@ -1,6 +1,4 @@
-package list.arraylist;
-
-import com.ibm.jvm.Log;
+package list.linkedlist;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
