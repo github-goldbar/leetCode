@@ -40,9 +40,10 @@ public class LinkedListCycleTwo {
         node = node.next;
         node.next = head.next;
 
-        System.out.println(node.val);
+        System.out.println(head.val);
         for (int i = 0; i < 10; i++) {
-            System.out.println(node.next.val);
+            head = head.next;
+            System.out.println(head.val);
         }
 
         //    System.out.println(detectCycle(node));
