@@ -71,33 +71,3 @@ public class LinkedListCycle {
 
 }
 
-
-// Definition for singly-linked list.
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-
-    //  public String toString() {
-    //    String result = "";
-    //    //  if (head == null)
-    //    //    return result;
-    //
-    //    ListNode node = head;
-    //    while (node != null) {
-    //
-    //      if (result == "")
-    //        result += node.value;
-    //      else
-    //        result += "->" + node.value;
-    //      node = node.next;
-    //
-    //    }
-    //    return result;
-    //  }
-}
-
