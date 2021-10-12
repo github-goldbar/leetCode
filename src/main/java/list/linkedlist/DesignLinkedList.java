@@ -9,10 +9,10 @@ import java.util.Arrays;
  * Initialize your data structure here.
  */
 class MyLinkedList {
-
     static class Node {
         int value;
         Node next;
+        Node prev;
 
         public Node(int value) {
             this.value = value;
@@ -21,8 +21,13 @@ class MyLinkedList {
 
     private int length;
     Node head;
+    Node tail;
 
-    MyLinkedList() {
+    public MyLinkedList() {
+        head = new Node(0);
+        tail = new Node(0);
+        head.next = tail;
+        tail.prev = head;
     }
 
     /**
@@ -30,10 +35,8 @@ class MyLinkedList {
      */
     public Node getNode(int index) {
         System.out.println("method getNode");
-        if (length == 0 || index >= length) {
+        if (index < 0 || index > length) {
             return null;
-        } else if (index <= 0) {
-            return head;
         }
 
         Node current = head;
@@ -95,8 +98,13 @@ class MyLinkedList {
 
         // add at index
         else if (index < length) {
-            current.next = getNode(index);
-            getNode(index - 1).next = current;
+            Node indexNode = getNode(index - 1);
+
+            current.next = indexNode.next;
+            current.next.prev = current;
+            indexNode.next = current;
+            current.prev = indexNode;
+
         }
 
         // add at tail
@@ -124,7 +132,10 @@ class MyLinkedList {
 
         // delete at index
         else if (index < length) {
-            getNode(index - 1).next = getNode(index + 1);
+            Node indexNode = getNode(index);
+
+            indexNode.prev.next = indexNode.next;
+            indexNode.next.prev = indexNode.prev;
         }
 
         // delete at tail
@@ -134,23 +145,17 @@ class MyLinkedList {
 
         length--;
     }
-
-
-    public String toString() {
-        String result = "";
-        if (head == null) return result;
-
-        Node node = head;
-        while (node != null) {
-
-            if (result == "") result += node.value;
-            else result += "->" + node.value;
-            node = node.next;
-
-        }
-        return result;
-    }
 }
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList obj = new MyLinkedList();
+ * int param_1 = obj.get(index);
+ * obj.addAtHead(val);
+ * obj.addAtTail(val);
+ * obj.addAtIndex(index,val);
+ * obj.deleteAtIndex(index);
+ */
 
 
 public class DesignLinkedList {
@@ -182,6 +187,7 @@ public class DesignLinkedList {
                         method = clazz.getDeclaredMethod(methodArray[i], int.class, int.class);
                         result[i] = method.invoke(obj, valueArray[i][0], valueArray[i][1]);
                     } else {
+                        System.out.println("method = " + methodArray[i]);
                         method = clazz.getDeclaredMethod(methodArray[i], int.class);
                         result[i] = method.invoke(obj, valueArray[i][0]);
                     }
