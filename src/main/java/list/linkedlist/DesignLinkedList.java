@@ -9,39 +9,40 @@ import java.util.Arrays;
  * Initialize your data structure here.
  */
 class MyLinkedList {
-    static class Node {
+    int length;
+    Node head;
+    Node tail;
+
+    private class Node {
         int value;
         Node next;
         Node prev;
 
         public Node(int value) {
             this.value = value;
+            this.next = null;
+            this.prev = null;
         }
     }
 
-    private int length;
-    Node head;
-    Node tail;
-
     public MyLinkedList() {
-        head = new Node(0);
-        tail = new Node(0);
-        head.next = tail;
-        tail.prev = head;
+        head = null;
+        tail = null;
+        length = 0;
     }
 
     /**
      * Get the index-th node in the linked list. If the index is invalid, return -1.
      */
     public Node getNode(int index) {
-        System.out.println("method getNode");
-        if (index < 0 || index > length) {
+//        System.out.println("method getNode");
+        if (index >= length) {
             return null;
         }
 
         Node current = head;
 
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i <= index; i++) {
             current = current.next;
         }
 
@@ -52,7 +53,7 @@ class MyLinkedList {
      * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
      */
     public int get(int index) {
-        System.out.println("method get");
+//        System.out.println("method get");
 
         Node current = getNode(index);
 
@@ -63,11 +64,18 @@ class MyLinkedList {
         return current.value;
     }
 
+    private void emptyAdd(int val) {
+        head = new Node(val);
+        tail = head;
+
+        length++;
+    }
+
     /**
      * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
      */
     public void addAtHead(int val) {
-        System.out.println("method addAtHead");
+//        System.out.println("method addAtHead");
         addAtIndex(0, val);
     }
 
@@ -75,7 +83,7 @@ class MyLinkedList {
      * Append a node of value val to the last element of the linked list.
      */
     public void addAtTail(int val) {
-        System.out.println("method addAtTail");
+//        System.out.println("method addAtTail");
         addAtIndex(length, val);
     }
 
@@ -83,8 +91,10 @@ class MyLinkedList {
      * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
      */
     public void addAtIndex(int index, int val) {
-        System.out.println("method addAtIndex");
-        if (index > length) {
+//        System.out.println("method addAtIndex");
+
+        if (length == 0) {
+            emptyAdd(val);
             return;
         }
 
@@ -92,24 +102,52 @@ class MyLinkedList {
 
         // add at head
         if (index <= 0) {
-            current.next = getNode(index);
+            current.next = head;
+            head.prev = current;
             head = current;
         }
 
         // add at index
         else if (index < length) {
-            Node indexNode = getNode(index - 1);
+            int i = 0;
+            Node indexNode = head;
 
-            current.next = indexNode.next;
-            current.next.prev = current;
-            indexNode.next = current;
-            current.prev = indexNode;
+            while(indexNode != null) {
+                // determine if we found the insert position
+                if (i == index) {
+                    // create the node to be inserted
+                    Node node = new Node(val);
+
+                    // rearrange the pointers
+                    node.prev = indexNode.prev;
+                    node.next = indexNode;
+                    indexNode.prev = node;
+                    node.prev.next = node;
+
+                    length++;
+
+                    break;
+                }
+
+                // increment
+                i++;
+                indexNode = indexNode.next;
+            }
+
+//            Node indexNode = getNode(index);
+//
+//            current.prev = indexNode.prev;
+//            current.next = indexNode;
+//            indexNode.prev = current;
+//            current.next.prev = current;
 
         }
 
         // add at tail
         else if (index == length) {
-            getNode(length - 1).next = current;
+            current.prev = tail;
+            tail.next = current;
+            tail = current;
         }
 
         length++;
@@ -119,28 +157,51 @@ class MyLinkedList {
      * Delete the index-th node in the linked list, if the index is valid.
      */
     public void deleteAtIndex(int index) {
-        System.out.println("method deleteAtIndex");
+//        System.out.println("method deleteAtIndex");
 
         if (index < 0 || index >= length) {
             return;
         }
 
-        // delete at head
-        if (index <= 0) {
-            head = getNode(1);
+        if (length == 1) {
+            // nullify the list
+            head = null;
+            tail = null;
+
+            length = 0;
         }
 
-        // delete at index
-        else if (index < length) {
-            Node indexNode = getNode(index);
-
-            indexNode.prev.next = indexNode.next;
-            indexNode.next.prev = indexNode.prev;
+        // delete at head
+        else if (index == 0) {
+            head = head.next;
+            head.prev = null;
         }
 
         // delete at tail
-        else if (index == length) {
-            getNode(length - 1).next = null;
+        else if (index == length - 1) {
+            tail = tail.prev;
+            tail.next = null;
+        }
+
+        // delete at index
+        else {
+            int i = 0;
+            Node current = head;
+//            Node indexNode = getNode(index);
+
+            while(current != null) {
+                if (i == index) {
+                    current.next.prev = current.prev;
+                    current.prev.next = current.next;
+
+                    length--;
+
+                    break;
+                }
+
+                current = current.next;
+                i++;
+            }
         }
 
         length--;

@@ -77,7 +77,8 @@ public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0, total;
 
-        ListNode returnedNodeHead = new ListNode(0), currentNodeHead = returnedNodeHead;
+        ListNode returnedNodeHead = new ListNode(0);
+        ListNode currentNodeHead = returnedNodeHead;
 
         while (l1 != null || l2 != null) {
 
@@ -98,7 +99,8 @@ public class AddTwoNumbers {
             carry = total / 10;
             //      System.out.println("carry = " + carry);
 
-            currentNodeHead = currentNodeHead.next = new ListNode(total % 10);
+            currentNodeHead.next = new ListNode(total % 10);
+            currentNodeHead = currentNodeHead.next;
             //      System.out.println("currentNodeHead.val = " + currentNodeHead.val);
 
             //      System.out.println();
