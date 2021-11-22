@@ -17,7 +17,7 @@ public class MergeTwoSortedLists {
 
         ListNode results = mergeTwoLists(headA, headB);
 
-        Utils.countNodeLength(results);
+        Utils.countListNodeLength(results);
     }
 
 

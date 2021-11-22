@@ -18,7 +18,7 @@ public class PalindromeLinkedList {
 
         System.out.println(isPalindrome(headA));
         System.out.println();
-        Utils.countNodeLength(headA);
+        Utils.countListNodeLength(headA);
         System.out.println();
 
     }

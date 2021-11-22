@@ -29,7 +29,7 @@ public class RemoveLinkedListElements {
 
 //        removeElements(headA, 6);
 
-        Utils.countNodeLength(headA);
+        Utils.countListNodeLength(headA);
 
 //        Example 2:
 //
@@ -57,7 +57,7 @@ public class RemoveLinkedListElements {
 
         removeElements(headB, 7);
 
-        Utils.countNodeLength(headB);
+        Utils.countListNodeLength(headB);
 
 //        Constraints:
 //

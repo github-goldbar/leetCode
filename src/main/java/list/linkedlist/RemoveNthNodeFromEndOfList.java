@@ -29,7 +29,7 @@ public class RemoveNthNodeFromEndOfList {
 
         headA = removeNthFromEnd(headA, 2);
         System.out.println();
-        countNodeLength(headA);
+        countListNodeLength(headA);
         System.out.println();
 //        Example 2:
 //
@@ -50,7 +50,7 @@ public class RemoveNthNodeFromEndOfList {
 
         headC = removeNthFromEnd(headC, 1);
         System.out.println();
-        countNodeLength(headC);
+        countListNodeLength(headC);
         System.out.println();
 //        Constraints:
 //
@@ -80,7 +80,7 @@ public class RemoveNthNodeFromEndOfList {
         //        Input: head = [1,2,3,4,5], n = 2
         //        Output: [1,2,3,5]
 
-        int length = countNodeLength(head);
+        int length = countListNodeLength(head);
         head = deleteNodeCountFromEnd(n, head, length);
 
         return head;
@@ -88,7 +88,7 @@ public class RemoveNthNodeFromEndOfList {
 
 
 
-    public static int countNodeLength(ListNode node) {
+    public static int countListNodeLength(ListNode node) {
         int length = 1;
         System.out.println("node = " + node.val);
 

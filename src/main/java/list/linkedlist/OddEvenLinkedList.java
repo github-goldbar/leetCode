@@ -21,8 +21,8 @@ public class OddEvenLinkedList implements Cloneable{
 //        nodeA.next = new ListNode(6);
 
 
-        Utils.countNodeLength(oddEvenList(headA));
-//        Utils.countNodeLength(headA);
+        Utils.countListNodeLength(oddEvenList(headA));
+//        Utils.countListNodeLength(headA);
 
     }
 
